@@ -1,39 +1,18 @@
 import { useReducer } from "react";
-import Strings from "../_data/strings-es";
-import Link from "next/link";
 import Search from "../_assets/svg/search";
 import SearchPanel from "../_includes/search-panel";
+import Menu from "../_includes/menu";
+import PropTypes from "prop-types";
 
-const liItemClass = (currentLocation, targetLocation) =>
-  `flex-1 md:flex-initial p-6 text-center ${
-    currentLocation === targetLocation && "font-menu-bold hidden md:block"
-  }`;
-
-const Navbar = ({ showMenu = true, color = "white", location = "/" }) => {
-  const {
-    MENU: { HOME, ABOUT_ME, BLOG },
-  } = Strings;
-
+const Navbar = ({ showMenu = true, color = "white" }) => {
   const [search, toggleSearch] = useReducer((val) => !val, false);
   return (
     <>
       <nav
-        className={`absolute top-0 flex flex-row font-menu justify-center w-screen text-${color}`}
+        className={`absolute top-0 flex flex-row justify-center w-screen text-${color}`}
       >
         <div className="container flex flex-row justify-left md:justify-center relative">
-          {showMenu && (
-            <ul className={`flex flex-row justify-center text-${color}`}>
-              <li className={liItemClass(location, "/")}>
-                <Link href="/">{HOME}</Link>
-              </li>
-              <li className={liItemClass(location, "/sobre-mi")}>
-                <Link href="/sobre-mi">{ABOUT_ME}</Link>
-              </li>
-              <li className={liItemClass(location, "/blog")}>
-                <Link href="/blog">{BLOG}</Link>
-              </li>
-            </ul>
-          )}
+          {showMenu && <Menu color={color} />}
           <span
             onClick={toggleSearch}
             className="absolute right-0 w-7 h-7 m-6 cursor-pointer text-white"
@@ -45,6 +24,16 @@ const Navbar = ({ showMenu = true, color = "white", location = "/" }) => {
       {search && <SearchPanel />}
     </>
   );
+};
+
+Navbar.propTypes = {
+  showMenu: PropTypes.bool,
+  color: PropTypes.string,
+};
+
+Navbar.defaultProps = {
+  showMenu: true,
+  color: "white",
 };
 
 export default Navbar;

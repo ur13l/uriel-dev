@@ -1,9 +1,11 @@
+import PropTypes from "prop-types";
+
 const Search = ({ color = "#ffffff" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
-    stroke="#ffffff"
+    stroke={color}
   >
     <path
       strokeLinecap="round"
@@ -13,5 +15,13 @@ const Search = ({ color = "#ffffff" }) => (
     />
   </svg>
 );
+
+Search.propTypes = {
+  color: PropTypes.string,
+};
+
+Search.defaultProps = {
+  color: "#ffffff",
+};
 
 export default Search;

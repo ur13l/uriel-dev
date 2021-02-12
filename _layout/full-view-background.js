@@ -1,7 +1,9 @@
+import PropTypes from "prop-types";
+
 const FullViewBackground = ({
   children,
   layerColor,
-  opacity,
+  opacity = 100,
   backgroundImage,
 }) => (
   <main
@@ -18,4 +20,14 @@ const FullViewBackground = ({
   </main>
 );
 
+FullViewBackground.propTypes = {
+  children: PropTypes.node.isRequired,
+  layerColor: PropTypes.string.isRequired,
+  opacity: PropTypes.number,
+  backgroundImage: PropTypes.string.isRequired,
+};
+
+FullViewBackground.defaultProps = {
+  opacity: 100,
+};
 export default FullViewBackground;
