@@ -1,0 +1,15 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-urieldev-staging-181736-authRole",
+      "UnauthRoleArn": "arn:aws:iam::919590014828:role/amplify-urieldev-staging-181736-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::919590014828:role/amplify-urieldev-staging-181736-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-urieldev-staging-181736-deployment",
+      "UnauthRoleName": "amplify-urieldev-staging-181736-unauthRole",
+      "StackName": "amplify-urieldev-staging-181736",
+      "StackId": "arn:aws:cloudformation:us-east-2:919590014828:stack/amplify-urieldev-staging-181736/471ab4e0-58f0-11eb-aa4d-024630c32df4",
+      "AmplifyAppId": "dsr98yd5gr2ds"
+    }
+  }
+}

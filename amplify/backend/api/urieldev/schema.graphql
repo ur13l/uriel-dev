@@ -1,0 +1,88 @@
+type Blog @model {
+  id: ID!
+  name: String!
+  mainImage: String
+  posts: [Post] @connection(keyName: "byBlog", fields: ["id"])
+}
+
+type Category @model {
+  id: ID!
+  name: String!
+  description: String!
+  mainImage: String!
+  posts: [Post] @connection(keyName: "byCategory", fields: ["id"])
+}
+
+type SocialMedia @model @key(name: "byAuthor", fields: ["authorID"]) {
+  id: ID!
+  name: String!
+  link: String!
+  logo: String!
+  authorID: ID!
+  author: Author @connection(fields: ["authorID"])
+}
+
+type Author @model {
+  id: ID!
+  name: String!
+  lastname: String!
+  bio: String
+  image: String!
+  socialMedia: [SocialMedia] @connection(keyName: "byAuthor", fields: ["id"])
+  posts: [Post] @connection(keyName: "byAuthor", fields: ["id"])
+}
+
+type Post
+  @model
+  @key(
+    name: "byBlog"
+    fields: ["blogID", "createdAt"]
+    queryField: "getPostsByCreatedAt"
+  )
+  @key(name: "byAuthor", fields: ["authorID"], queryField: "getPostsByAuthor")
+  @key(
+    name: "byCategory"
+    fields: ["categoryID"]
+    queryField: "getPostsByCategory"
+  ) {
+  id: ID!
+  title: String!
+  blogID: ID!
+  blog: Blog @connection(fields: ["blogID"])
+  categoryID: ID!
+  category: Category @connection(fields: ["categoryID"])
+  content: String!
+  featuredImage: String
+  authorID: ID!
+  author: Author @connection(fields: ["authorID"])
+  tags: [PostTag] @connection(keyName: "byPost", fields: ["id"])
+  createdAt: AWSDateTime!
+}
+
+# Create a join model and disable queries as you don't need them
+# and can query through Post.editors and User.posts
+type PostTag
+  @model(queries: null)
+  @key(
+    name: "byPost"
+    fields: ["postID", "tagID"]
+    queryField: "getPostTagByPost"
+  )
+  @key(
+    name: "byTag"
+    fields: ["tagID", "postID"]
+    queryField: "getPostTagByTag_"
+  ) {
+  id: ID!
+  postID: ID!
+  tagID: ID!
+  post: Post! @connection(fields: ["postID"])
+  tag: Tag! @connection(fields: ["tagID"])
+}
+
+type Tag @model {
+  id: ID!
+  name: String!
+  slug: String!
+  posts: [PostTag] @connection(keyName: "byTag", fields: ["id"])
+}

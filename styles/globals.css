@@ -1,16 +1,72 @@
-html,
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: CoreSansGBold;
+  src: url(../_assets/fonts/CoreSansG-Bold.ttf)
+}
+
+@font-face {
+  font-family: CoreSansM35;
+  src: url(../_assets/fonts/CoreSansM35-webfont.ttf)
+}
+
+@font-face {
+  font-family: CoreSansM65;
+  src: url(../_assets/fonts/CoreSansM65-webfont.ttf)
+}
+
+@font-face {
+  font-family: Monaco;
+  src: url(../_assets/fonts/Monaco.ttf)
+}
+
+@font-face {
+  font-family: PTSans;
+  src: url(../_assets/fonts/PTS-webfont.ttf)
+}
+
+html {
+  --font-title: CoreSansGBold, sans-serif;
+  --font-regular: PTSans, sans-serif;
+  --font-menu: CoreSansM35;
+  --font-menu-bold: CoreSansM65;
+  --font-console: Monaco, serif; 
+  height: 100%;
+  width: 100%;
+}
+
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--font-regular);
+  height: 100%;
+  width: 100%;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-title);
 }
 
-* {
-  box-sizing: border-box;
+code {
+  font-family: var(--font-console);
+}
+
+.font-title {
+  font-family: var(--font-title);
+}
+
+.font-regular {
+  font-family: var(--font-regular);
+}
+
+.font-menu {
+  font-family: var(--font-menu);
+}
+
+.font-menu-bold {
+  font-family: var(--font-menu-bold);
+}
+
+.font-console {
+  font-family: var(--font-console);
 }
