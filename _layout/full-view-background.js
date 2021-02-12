@@ -11,7 +11,7 @@ const FullViewBackground = ({
     className="h-screen w-screen my-auto bg-cover bg-img"
   >
     <div
-      className={`flex-col flex w-screen h-screen ${layerColor} opacity-${opacity} white content-center justify-center`}
+      className={`flex-col flex w-screen h-screen ${layerColor} bg-opacity-${opacity} white content-center justify-center`}
     >
       {children}
     </div>
