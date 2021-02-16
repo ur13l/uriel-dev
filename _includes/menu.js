@@ -16,6 +16,7 @@ const Menu = ({
   const {
     MENU: { HOME, ABOUT_ME, BLOG },
   } = Strings;
+  console.log(location);
   return (
     <ul className={`flex flex-row justify-center font-menu text-${color}`}>
       <li className={liItemClass(location, "/", showCurrentLocation)}>

@@ -4,7 +4,7 @@ import SearchPanel from "../_includes/search-panel";
 import Menu from "../_includes/menu";
 import PropTypes from "prop-types";
 
-const Navbar = ({ showMenu = true, color = "white" }) => {
+const Navbar = ({ showMenu = true, color = "white", location = "/" }) => {
   const [search, toggleSearch] = useReducer((val) => !val, false);
   return (
     <>
@@ -12,7 +12,7 @@ const Navbar = ({ showMenu = true, color = "white" }) => {
         className={`absolute top-0 flex flex-row justify-center w-screen text-${color}`}
       >
         <div className="container flex flex-row justify-left md:justify-center relative">
-          {showMenu && <Menu color={color} />}
+          {showMenu && <Menu color={color} location={location} />}
           <span
             onClick={toggleSearch}
             className="absolute right-0 w-7 h-7 m-6 cursor-pointer text-white"
@@ -29,11 +29,13 @@ const Navbar = ({ showMenu = true, color = "white" }) => {
 Navbar.propTypes = {
   showMenu: PropTypes.bool,
   color: PropTypes.string,
+  location: PropTypes.string,
 };
 
 Navbar.defaultProps = {
   showMenu: true,
   color: "white",
+  location: "/",
 };
 
 export default Navbar;
