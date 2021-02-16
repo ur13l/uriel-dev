@@ -17,7 +17,7 @@ const Navbar = ({ showMenu = true, color = "white" }) => {
             onClick={toggleSearch}
             className="absolute right-0 w-7 h-7 m-6 cursor-pointer text-white"
           >
-            <Search />
+            <Search color={color} />
           </span>
         </div>
       </nav>

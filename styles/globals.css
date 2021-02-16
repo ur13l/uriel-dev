@@ -33,6 +33,9 @@ html {
   --font-menu: CoreSansM35;
   --font-menu-bold: CoreSansM65;
   --font-console: Monaco, serif; 
+  --blue: #1098F7;
+  --blue-light: #E9F2F8;
+  --blue-dark: #2B4162;
   height: 100%;
   width: 100%;
 }

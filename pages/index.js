@@ -12,7 +12,7 @@ const Home = () => {
       opacity={70}
       layerColor="bg-black"
     >
-      <Navbar showMenu={false} location={pathname} />
+      <Navbar showMenu={false} color={"white"} location={pathname} />
       <Hero />
       <CoverFooter location={pathname} />
     </FullViewBackground>
