@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import Lottie from "react-lottie";
-import Image from "next/image";
 
 const InfoSection = ({
   alignText = "left",
