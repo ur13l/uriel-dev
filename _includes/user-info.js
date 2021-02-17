@@ -1,12 +1,12 @@
-import Image from "next/image";
 import SocialList from "../_includes/social-list";
+import profileJpg from "../_assets/images/profile.jpg?trace";
 
 const UserInfo = () => (
   <div className="flex flex-col content-center items-center mt-24">
-    <div className="inline ">
-      <Image
+    <div>
+      <img
         className="rounded-full"
-        src="/images/profile.jpg"
+        src={profileJpg.src}
         alt="Foto de perfil"
         width={160}
         height={160}
