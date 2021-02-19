@@ -19,11 +19,11 @@ const InfoSection = ({
     className={`flex z-10 flex-row mt-10 mb-10 justify-center content-center text-${color}`}
   >
     <div
-      className={`container flex mt-20 mb-20 content-center ${
-        alignText === "left" ? "flex-row" : "flex-row-reverse"
+      className={`container px-6 md:px-20  flex mt-20 mb-20 content-center flex-col ${
+        alignText === "left" ? "md:flex-row" : "md:flex-row-reverse"
       }`}
     >
-      <div className="flex flex-col w-1/2">
+      <div className="flex flex-col w-full md:w-1/2">
         <h2 className="text-3xl mb-6">{title}</h2>
         {paragraphs.map((paragraph, key) => (
           <p key={key} className="font-regular mb-6">
@@ -36,12 +36,16 @@ const InfoSection = ({
           </div>
         )}
       </div>
-      <div className="w-1/2">
-        <Lottie
-          options={animation}
-          height={animationHeight}
-          width={animationWidth}
-        />
+      <div className="w-full md:w-1/2">
+        {animation && (
+          <div>
+            <Lottie
+              options={animation}
+              height={animationHeight}
+              width={animationWidth}
+            />
+          </div>
+        )}
       </div>
     </div>
   </motion.div>

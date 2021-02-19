@@ -36,14 +36,14 @@ html {
   --blue: #1098F7;
   --blue-light: #E9F2F8;
   --blue-dark: #2B4162;
-  height: 100%;
   width: 100%;
 }
 
 body {
   font-family: var(--font-regular);
-  height: 100%;
-  width: 100%;
+  width: 100vw;
+  overflow-x: hidden;
+  background: black;
 }
 
 h1, h2, h3, h4, h5 {
