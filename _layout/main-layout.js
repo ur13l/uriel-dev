@@ -11,7 +11,7 @@ const MainLayout = ({ children }) => {
       <main className="bg-white">
         <Navbar location={pathname} color={"var(--blue-dark)"} />
         <div className="w-full overflow-x-hidden">{children}</div>
-        <Footer />
+        <Footer location={pathname} />
       </main>
     </BrowserProvider>
   );
