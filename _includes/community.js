@@ -15,7 +15,7 @@ const getAnimationOptions = (animation) => ({
 
 const Community = () => {
   const {
-    EXPERIENCE: { EXPERIENCE, EXPERIENCE_PARAGRAPH_1, EXPERIENCE_PARAGRAPH_2 },
+    COMMUNITY: { COMMUNITY, COMMUNITY_PARAGRAPH_1 },
   } = Strings;
 
   const { screenSize } = useBrowserInfo();
@@ -23,14 +23,14 @@ const Community = () => {
     <div className="relative">
       <motion.div
         initial={{ x: "-110vw", y: "-60px", skewY: -2 }}
-        animate={{ x: screenSize === "mobile" ? "0" : "-100px" }}
+        animate={{ x: screenSize !== "desktop" ? "0" : "-100px" }}
         transition={{ ease: "easeIn", duration: 1 }}
         className="absolute top-0 h-full w-full bg-blue-light"
       />
 
       <InfoSection
-        title={EXPERIENCE}
-        paragraphs={[EXPERIENCE_PARAGRAPH_1, EXPERIENCE_PARAGRAPH_2]}
+        title={COMMUNITY}
+        paragraphs={[COMMUNITY_PARAGRAPH_1]}
         color={"black"}
         alignText="right"
         animation={getAnimationOptions(animation)}

@@ -21,16 +21,16 @@ const Experience = () => {
   const { screenSize } = useBrowserInfo();
 
   return (
-    <div className="relative">
+    <div className="relative z-50">
       <motion.div
         initial={{ x: "110vw", y: "-30px", skewY: -2 }}
-        animate={{ x: screenSize === "mobile" ? "0" : "100px" }}
+        animate={{ x: screenSize !== "desktop" ? "0" : "100px" }}
         transition={{ ease: "easeIn", duration: 1 }}
         className="absolute top-0 h-full w-full bg-blue-light"
       />
       <motion.div
         initial={{ x: "100vw", skewY: -2 }}
-        animate={{ x: screenSize === "mobile" ? "0" : "40px" }}
+        animate={{ x: screenSize !== "desktop" ? "0" : "40px" }}
         transition={{ ease: "easeIn", duration: 0.5 }}
         className="absolute top-0 h-full w-full bg-blue-dark"
       />
