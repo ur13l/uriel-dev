@@ -10,6 +10,11 @@
       "StackName": "amplify-urieldev-staging-181736",
       "StackId": "arn:aws:cloudformation:us-east-2:919590014828:stack/amplify-urieldev-staging-181736/471ab4e0-58f0-11eb-aa4d-024630c32df4",
       "AmplifyAppId": "dsr98yd5gr2ds"
+    },
+    "categories": {
+      "auth": {
+        "urieldev7dc5307f": {}
+      }
     }
   }
 }

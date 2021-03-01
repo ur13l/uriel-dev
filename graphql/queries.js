@@ -1,17 +1,163 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getBlog = /* GraphQL */ `
-  query GetBlog($id: ID!) {
-    getBlog(id: $id) {
+export const syncPostTags = /* GraphQL */ `
+  query SyncPostTags(
+    $filter: ModelPostTagFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncPostTags(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        postID
+        tagID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncTags = /* GraphQL */ `
+  query SyncTags(
+    $filter: ModelTagFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncTags(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        name
+        slug
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getTag = /* GraphQL */ `
+  query GetTag($id: ID!) {
+    getTag(id: $id) {
       id
       name
-      mainImage
+      slug
       posts {
         nextToken
+        startedAt
       }
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
+    }
+  }
+`;
+export const listTags = /* GraphQL */ `
+  query ListTags(
+    $filter: ModelTagFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listTags(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        slug
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getPostTagByPost = /* GraphQL */ `
+  query GetPostTagByPost(
+    $postID: ID
+    $tagID: ModelIDKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelPostTagFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getPostTagByPost(
+      postID: $postID
+      tagID: $tagID
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        postID
+        tagID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getPostTagByTag = /* GraphQL */ `
+  query GetPostTagByTag(
+    $tagID: ID
+    $postID: ModelIDKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelPostTagFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getPostTagByTag_(
+      tagID: $tagID
+      postID: $postID
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        postID
+        tagID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
     }
   }
 `;
@@ -26,25 +172,60 @@ export const listBlogs = /* GraphQL */ `
         id
         name
         mainImage
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
   }
 `;
-export const getCategory = /* GraphQL */ `
-  query GetCategory($id: ID!) {
-    getCategory(id: $id) {
+export const getBlog = /* GraphQL */ `
+  query GetBlog($id: ID!) {
+    getBlog(id: $id) {
       id
       name
-      description
       mainImage
-      posts {
-        nextToken
-      }
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
+      posts {
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
+export const syncBlogs = /* GraphQL */ `
+  query SyncBlogs(
+    $filter: ModelBlogFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncBlogs(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        name
+        mainImage
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
     }
   }
 `;
@@ -60,10 +241,62 @@ export const listCategorys = /* GraphQL */ `
         name
         description
         mainImage
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
+    }
+  }
+`;
+export const getCategory = /* GraphQL */ `
+  query GetCategory($id: ID!) {
+    getCategory(id: $id) {
+      id
+      name
+      description
+      mainImage
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      posts {
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
+export const syncCategories = /* GraphQL */ `
+  query SyncCategories(
+    $filter: ModelCategoryFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncCategories(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        name
+        description
+        mainImage
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
     }
   }
 `;
@@ -75,17 +308,23 @@ export const getSocialMedia = /* GraphQL */ `
       link
       logo
       authorID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       author {
         id
         name
         lastname
         bio
         image
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -102,29 +341,44 @@ export const listSocialMedias = /* GraphQL */ `
         link
         logo
         authorID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
   }
 `;
-export const getAuthor = /* GraphQL */ `
-  query GetAuthor($id: ID!) {
-    getAuthor(id: $id) {
-      id
-      name
-      lastname
-      bio
-      image
-      socialMedia {
-        nextToken
+export const syncSocialMedias = /* GraphQL */ `
+  query SyncSocialMedias(
+    $filter: ModelSocialMediaFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncSocialMedias(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        name
+        link
+        logo
+        authorID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
       }
-      posts {
-        nextToken
-      }
-      createdAt
-      updatedAt
+      nextToken
+      startedAt
     }
   }
 `;
@@ -141,52 +395,68 @@ export const listAuthors = /* GraphQL */ `
         lastname
         bio
         image
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
   }
 `;
-export const getPost = /* GraphQL */ `
-  query GetPost($id: ID!) {
-    getPost(id: $id) {
+export const getAuthor = /* GraphQL */ `
+  query GetAuthor($id: ID!) {
+    getAuthor(id: $id) {
       id
-      title
-      blogID
-      blog {
-        id
-        name
-        mainImage
-        createdAt
-        updatedAt
+      name
+      lastname
+      bio
+      image
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      socialMedia {
+        nextToken
+        startedAt
       }
-      categoryID
-      category {
-        id
-        name
-        description
-        mainImage
-        createdAt
-        updatedAt
+      posts {
+        nextToken
+        startedAt
       }
-      content
-      featuredImage
-      authorID
-      author {
+    }
+  }
+`;
+export const syncAuthors = /* GraphQL */ `
+  query SyncAuthors(
+    $filter: ModelAuthorFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncAuthors(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
         id
         name
         lastname
         bio
         image
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
-      tags {
-        nextToken
-      }
-      createdAt
-      updatedAt
+      nextToken
+      startedAt
     }
   }
 `;
@@ -206,41 +476,68 @@ export const listPosts = /* GraphQL */ `
         featuredImage
         authorID
         createdAt
+        _version
+        _deleted
+        _lastChangedAt
         updatedAt
       }
       nextToken
+      startedAt
     }
   }
 `;
-export const getTag = /* GraphQL */ `
-  query GetTag($id: ID!) {
-    getTag(id: $id) {
+export const getPost = /* GraphQL */ `
+  query GetPost($id: ID!) {
+    getPost(id: $id) {
       id
-      name
-      slug
-      posts {
+      title
+      blogID
+      categoryID
+      content
+      featuredImage
+      authorID
+      tags {
         nextToken
+        startedAt
       }
       createdAt
+      _version
+      _deleted
+      _lastChangedAt
       updatedAt
-    }
-  }
-`;
-export const listTags = /* GraphQL */ `
-  query ListTags(
-    $filter: ModelTagFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listTags(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
+      blog {
         id
         name
-        slug
+        mainImage
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
-      nextToken
+      category {
+        id
+        name
+        description
+        mainImage
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      author {
+        id
+        name
+        lastname
+        bio
+        image
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
     }
   }
 `;
@@ -270,9 +567,13 @@ export const getPostsByCreatedAt = /* GraphQL */ `
         featuredImage
         authorID
         createdAt
+        _version
+        _deleted
+        _lastChangedAt
         updatedAt
       }
       nextToken
+      startedAt
     }
   }
 `;
@@ -300,9 +601,13 @@ export const getPostsByAuthor = /* GraphQL */ `
         featuredImage
         authorID
         createdAt
+        _version
+        _deleted
+        _lastChangedAt
         updatedAt
       }
       nextToken
+      startedAt
     }
   }
 `;
@@ -330,65 +635,45 @@ export const getPostsByCategory = /* GraphQL */ `
         featuredImage
         authorID
         createdAt
+        _version
+        _deleted
+        _lastChangedAt
         updatedAt
       }
       nextToken
+      startedAt
     }
   }
 `;
-export const getPostTagByPost = /* GraphQL */ `
-  query GetPostTagByPost(
-    $postID: ID
-    $tagID: ModelIDKeyConditionInput
-    $sortDirection: ModelSortDirection
-    $filter: ModelPostTagFilterInput
+export const syncPosts = /* GraphQL */ `
+  query SyncPosts(
+    $filter: ModelPostFilterInput
     $limit: Int
     $nextToken: String
+    $lastSync: AWSTimestamp
   ) {
-    getPostTagByPost(
-      postID: $postID
-      tagID: $tagID
-      sortDirection: $sortDirection
+    syncPosts(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
+      lastSync: $lastSync
     ) {
       items {
         id
-        postID
-        tagID
+        title
+        blogID
+        categoryID
+        content
+        featuredImage
+        authorID
         createdAt
+        _version
+        _deleted
+        _lastChangedAt
         updatedAt
       }
       nextToken
-    }
-  }
-`;
-export const getPostTagByTag = /* GraphQL */ `
-  query GetPostTagByTag(
-    $tagID: ID
-    $postID: ModelIDKeyConditionInput
-    $sortDirection: ModelSortDirection
-    $filter: ModelPostTagFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    getPostTagByTag_(
-      tagID: $tagID
-      postID: $postID
-      sortDirection: $sortDirection
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        postID
-        tagID
-        createdAt
-        updatedAt
-      }
-      nextToken
+      startedAt
     }
   }
 `;

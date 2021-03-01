@@ -1,11 +1,11 @@
-type Blog @model {
+type Blog @model @auth(rules: [{ allow: private }]) {
   id: ID!
   name: String!
   mainImage: String
   posts: [Post] @connection(keyName: "byBlog", fields: ["id"])
 }
 
-type Category @model {
+type Category @model @auth(rules: [{ allow: private }]) {
   id: ID!
   name: String!
   description: String!
@@ -13,7 +13,10 @@ type Category @model {
   posts: [Post] @connection(keyName: "byCategory", fields: ["id"])
 }
 
-type SocialMedia @model @key(name: "byAuthor", fields: ["authorID"]) {
+type SocialMedia
+  @model
+  @key(name: "byAuthor", fields: ["authorID"])
+  @auth(rules: [{ allow: private }]) {
   id: ID!
   name: String!
   link: String!
@@ -22,7 +25,7 @@ type SocialMedia @model @key(name: "byAuthor", fields: ["authorID"]) {
   author: Author @connection(fields: ["authorID"])
 }
 
-type Author @model {
+type Author @model @auth(rules: [{ allow: private }]) {
   id: ID!
   name: String!
   lastname: String!
@@ -44,7 +47,8 @@ type Post
     name: "byCategory"
     fields: ["categoryID"]
     queryField: "getPostsByCategory"
-  ) {
+  )
+  @auth(rules: [{ allow: private }]) {
   id: ID!
   title: String!
   blogID: ID!
@@ -59,8 +63,6 @@ type Post
   createdAt: AWSDateTime!
 }
 
-# Create a join model and disable queries as you don't need them
-# and can query through Post.editors and User.posts
 type PostTag
   @model(queries: null)
   @key(
