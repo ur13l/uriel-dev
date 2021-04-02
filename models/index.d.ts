@@ -8,6 +8,7 @@ export declare class Blog {
   readonly id: string;
   readonly name: string;
   readonly mainImage?: string;
+  readonly slug: string;
   readonly posts?: (Post | null)[];
   constructor(init: ModelInit<Blog>);
   static copyOf(source: Blog, mutator: (draft: MutableModel<Blog>) => MutableModel<Blog> | void): Blog;
@@ -32,6 +33,7 @@ export declare class Category {
   readonly name: string;
   readonly description: string;
   readonly mainImage: string;
+  readonly slug: string;
   readonly posts?: (Post | null)[];
   constructor(init: ModelInit<Category>);
   static copyOf(source: Category, mutator: (draft: MutableModel<Category>) => MutableModel<Category> | void): Category;

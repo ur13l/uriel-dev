@@ -172,6 +172,7 @@ export const listBlogs = /* GraphQL */ `
         id
         name
         mainImage
+        slug
         _version
         _deleted
         _lastChangedAt
@@ -189,6 +190,7 @@ export const getBlog = /* GraphQL */ `
       id
       name
       mainImage
+      slug
       _version
       _deleted
       _lastChangedAt
@@ -218,6 +220,7 @@ export const syncBlogs = /* GraphQL */ `
         id
         name
         mainImage
+        slug
         _version
         _deleted
         _lastChangedAt
@@ -241,6 +244,7 @@ export const listCategorys = /* GraphQL */ `
         name
         description
         mainImage
+        slug
         _version
         _deleted
         _lastChangedAt
@@ -259,6 +263,7 @@ export const getCategory = /* GraphQL */ `
       name
       description
       mainImage
+      slug
       _version
       _deleted
       _lastChangedAt
@@ -289,6 +294,7 @@ export const syncCategories = /* GraphQL */ `
         name
         description
         mainImage
+        slug
         _version
         _deleted
         _lastChangedAt
@@ -509,6 +515,7 @@ export const getPost = /* GraphQL */ `
         id
         name
         mainImage
+        slug
         _version
         _deleted
         _lastChangedAt
@@ -520,6 +527,7 @@ export const getPost = /* GraphQL */ `
         name
         description
         mainImage
+        slug
         _version
         _deleted
         _lastChangedAt

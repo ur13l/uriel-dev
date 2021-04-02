@@ -196,6 +196,7 @@ export const createBlog = /* GraphQL */ `
       id
       name
       mainImage
+      slug
       _version
       _deleted
       _lastChangedAt
@@ -217,6 +218,7 @@ export const updateBlog = /* GraphQL */ `
       id
       name
       mainImage
+      slug
       _version
       _deleted
       _lastChangedAt
@@ -238,6 +240,7 @@ export const deleteBlog = /* GraphQL */ `
       id
       name
       mainImage
+      slug
       _version
       _deleted
       _lastChangedAt
@@ -260,6 +263,7 @@ export const createCategory = /* GraphQL */ `
       name
       description
       mainImage
+      slug
       _version
       _deleted
       _lastChangedAt
@@ -282,6 +286,7 @@ export const updateCategory = /* GraphQL */ `
       name
       description
       mainImage
+      slug
       _version
       _deleted
       _lastChangedAt
@@ -304,6 +309,7 @@ export const deleteCategory = /* GraphQL */ `
       name
       description
       mainImage
+      slug
       _version
       _deleted
       _lastChangedAt
@@ -516,6 +522,7 @@ export const createPost = /* GraphQL */ `
         id
         name
         mainImage
+        slug
         _version
         _deleted
         _lastChangedAt
@@ -527,6 +534,7 @@ export const createPost = /* GraphQL */ `
         name
         description
         mainImage
+        slug
         _version
         _deleted
         _lastChangedAt
@@ -574,6 +582,7 @@ export const updatePost = /* GraphQL */ `
         id
         name
         mainImage
+        slug
         _version
         _deleted
         _lastChangedAt
@@ -585,6 +594,7 @@ export const updatePost = /* GraphQL */ `
         name
         description
         mainImage
+        slug
         _version
         _deleted
         _lastChangedAt
@@ -632,6 +642,7 @@ export const deletePost = /* GraphQL */ `
         id
         name
         mainImage
+        slug
         _version
         _deleted
         _lastChangedAt
@@ -643,6 +654,7 @@ export const deletePost = /* GraphQL */ `
         name
         description
         mainImage
+        slug
         _version
         _deleted
         _lastChangedAt

@@ -1,6 +1,7 @@
 import Input from "../../_includes/input";
 import { Auth } from "aws-amplify";
 import { useState, useEffect } from "react";
+import Router from "next/router";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +17,7 @@ const Login = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
     setLoading(true);
     const { email: username, password } = formData;
     try {
@@ -24,6 +26,7 @@ const Login = () => {
         await Auth.completeNewPassword(user, password);
       }
       setLoading(false);
+      Router.push("/admin/dashboard");
     } catch (e) {
       setError(e.message);
       setLoading(false);
@@ -31,8 +34,8 @@ const Login = () => {
   };
 
   useEffect(() => {
-    Auth.currentAuthenticatedUser().then((user) => {
-      console.log(user);
+    Auth.currentAuthenticatedUser().then(() => {
+      Router.push("/admin/dashboard");
     });
   }, []);
 
@@ -56,10 +59,9 @@ const Login = () => {
           />
           <input
             type="submit"
-            value="Iniciar sesión"
-            className="bg-blue-dark text-white w-full h-10 font-regular hover:bg-blue transition-colors mb-10"
+            value={loading ? "Accediendo..." : "Iniciar sesión"}
+            className="bg-blue-dark text-white w-full h-10 font-regular hover:bg-blue transition-colors cursor-pointer mb-10"
           />
-          {loading && <p>Cargando...</p>}
           {error && <p className="text-red">{error}</p>}
         </form>
       </div>
