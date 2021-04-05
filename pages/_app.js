@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import "../configure-amplify";
 import "tailwindcss/tailwind.css";
+import "vditor/src/assets/scss/index.scss";
 import PropTypes from "prop-types";
 
 function MyApp({ Component, pageProps }) {

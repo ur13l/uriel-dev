@@ -9,7 +9,7 @@ const PostsList = ({ title, category, blog }) => {
           {title}
         </h1>
         <Link href={`/admin/${blog}/${category}/new`}>
-          <span className="font-regular underline cursor-pointer">Nueva</span>
+          <span className="font-menu underline cursor-pointer">Nueva</span>
         </Link>
       </div>
       <div className="py-4">
@@ -21,7 +21,7 @@ const PostsList = ({ title, category, blog }) => {
       </div>
       <div className="w-full h-20">{category}</div>
       <div className="flex w-full justify-center">
-        <button className="font-regular underline">Más</button>
+        <button className="font-menu underline">Más</button>
       </div>
     </div>
   );

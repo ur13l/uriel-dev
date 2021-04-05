@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "storage": {
+      "urielDevContent": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

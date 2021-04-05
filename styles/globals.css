@@ -73,3 +73,13 @@ code {
 .font-console {
   font-family: var(--font-console);
 }
+
+.vditor-reset {
+  padding: 10px 0 !important;
+  font-family: var(--font-regular) !important;
+}
+
+.vditor {
+  border-color: white !important;
+}
+

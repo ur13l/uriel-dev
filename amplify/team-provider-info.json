@@ -14,6 +14,12 @@
     "categories": {
       "auth": {
         "urieldev7dc5307f": {}
+      },
+      "function": {
+        "uploadImageBlog": {
+          "deploymentBucketName": "amplify-urieldev-staging-181736-deployment",
+          "s3Key": "amplify-builds/uploadImageBlog-50583548665a79415a57-build.zip"
+        }
       }
     }
   }

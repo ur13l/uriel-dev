@@ -1,6 +1,18 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const uploadImage = /* GraphQL */ `
+  query UploadImage($files: String!) {
+    uploadImage(files: $files) {
+      msg
+      code
+      data {
+        errFiles
+        succMap
+      }
+    }
+  }
+`;
 export const syncPostTags = /* GraphQL */ `
   query SyncPostTags(
     $filter: ModelPostTagFilterInput

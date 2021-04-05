@@ -1,16 +1,19 @@
-import PropTypes from "prop-types";
-const NewPost = ({ category, blog }) => {
-  console.log(category, blog);
-  return (
-    <div>
-      NUEVO {category} {blog}
-    </div>
-  );
-};
+import AdminLayout from "../../../../_layout/admin-layout";
+import EditEntry from "../../../../_includes/admin/edit-entry";
+import { useRouter } from "next/router";
 
-NewPost.propTypes = {
-  category: PropTypes.string.isRequired,
-  blog: PropTypes.string.isRequired,
+const NewPost = () => {
+  const router = useRouter();
+  const { category, blog } = router.query;
+
+  return (
+    <AdminLayout>
+      <div className="flex flex-col md:flex-row container p-4 mt-16">
+        {/* {loading && <div>Cargando...</div>} */}
+        <EditEntry categorySlug={category} blogSlug={blog} />
+      </div>
+    </AdminLayout>
+  );
 };
 
 export default NewPost;

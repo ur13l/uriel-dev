@@ -90,3 +90,18 @@ type Tag @model {
   slug: String!
   posts: [PostTag] @connection(keyName: "byTag", fields: ["id"])
 }
+
+type ImageResponse {
+  msg: String!
+  code: Int!
+  data: DataResponse!
+}
+
+type DataResponse {
+  errFiles: [String]!
+  succMap: String!
+}
+
+type Query {
+  uploadImage(files: String!): ImageResponse @function(name: "uploadImageBlog")
+}

@@ -4,7 +4,6 @@ import { DataStore } from "@aws-amplify/datastore";
 import { Blog } from "../../models";
 import { Category } from "../../models";
 import { useEffect, useState } from "react";
-import { useElementScroll } from "framer-motion";
 
 const Dashboard = () => {
   const [loading, setLoading] = useState(true);
