@@ -1,5 +1,13 @@
 {
   "permissions": {
+    "api": {
+      "urieldev": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    },
     "storage": {
       "urielDevContent": [
         "create",

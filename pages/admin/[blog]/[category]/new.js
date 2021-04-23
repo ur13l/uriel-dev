@@ -1,19 +1,49 @@
 import AdminLayout from "../../../../_layout/admin-layout";
 import EditEntry from "../../../../_includes/admin/edit-entry";
-import { useRouter } from "next/router";
+import { listCategorys, listBlogs } from "../../../../graphql/queries";
+import { API, DataStore } from "aws-amplify";
+import { Blog, Category } from "../../../../models";
+import PropTypes from "prop-types";
+import { redirectIfNotAuthenticated } from "../../../../_utils/session";
 
-const NewPost = () => {
-  const router = useRouter();
-  const { category, blog } = router.query;
-
+const NewPost = ({ blog, category }) => {
   return (
     <AdminLayout>
       <div className="flex flex-col md:flex-row container p-4 mt-16">
-        {/* {loading && <div>Cargando...</div>} */}
-        <EditEntry categorySlug={category} blogSlug={blog} />
+        <EditEntry category={category} blog={blog} />
       </div>
     </AdminLayout>
   );
+};
+
+export const getServerSideProps = async ({ params, req, res }) => {
+  await redirectIfNotAuthenticated(req, res);
+  const {
+    data: {
+      listBlogs: { items: blogs },
+    },
+  } = await API.graphql({
+    query: listBlogs,
+    variables: { filter: { slug: { eq: params.blog } } },
+  });
+
+  const {
+    data: {
+      listCategorys: { items: categories },
+    },
+  } = await API.graphql({
+    query: listCategorys,
+    variables: { filter: { slug: { eq: params.category } } },
+  });
+  const blog = blogs.length ? blogs[0] : null;
+  const category = categories.length ? categories[0] : null;
+
+  return { props: { blog, category } };
+};
+
+NewPost.propTypes = {
+  blog: PropTypes.object,
+  category: PropTypes.object,
 };
 
 export default NewPost;

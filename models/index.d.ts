@@ -2,7 +2,18 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 
 
+export declare class ImageResponse {
+  readonly msg: string;
+  readonly code: number;
+  readonly data: DataResponse;
+  constructor(init: ModelInit<ImageResponse>);
+}
 
+export declare class DataResponse {
+  readonly errFiles: (string | null)[];
+  readonly succMap: string;
+  constructor(init: ModelInit<DataResponse>);
+}
 
 export declare class Blog {
   readonly id: string;

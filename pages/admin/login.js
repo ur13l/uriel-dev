@@ -2,8 +2,9 @@ import Input from "../../_includes/input";
 import { Auth } from "aws-amplify";
 import { useState, useEffect } from "react";
 import Router from "next/router";
+import { redirectIfAuthenticated } from "../../_utils/session";
 
-const Login = () => {
+const Login = ({}) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -33,12 +34,6 @@ const Login = () => {
     }
   };
 
-  useEffect(() => {
-    Auth.currentAuthenticatedUser().then(() => {
-      Router.push("/admin/dashboard");
-    });
-  }, []);
-
   return (
     <main className="flex relative items-center align-middle justify-center bg-white h-screen w-screen">
       <div className="absolute z-0 md:bg-blue-light md:h-1/2 md:w-1/2 lg:1/3 md:transform md:skew-x-3 md:rotate-3 md:skew-y-5" />
@@ -67,6 +62,10 @@ const Login = () => {
       </div>
     </main>
   );
+};
+
+export const getServerSideProps = async ({ req, res }) => {
+  return await redirectIfAuthenticated(req, res);
 };
 
 export default Login;

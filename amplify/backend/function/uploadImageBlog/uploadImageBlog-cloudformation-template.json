@@ -19,6 +19,18 @@
     "storageurielDevContentBucketName": {
       "Type": "String",
       "Default": "storageurielDevContentBucketName"
+    },
+    "apiurieldevGraphQLAPIIdOutput": {
+      "Type": "String",
+      "Default": "apiurieldevGraphQLAPIIdOutput"
+    },
+    "apiurieldevGraphQLAPIEndpointOutput": {
+      "Type": "String",
+      "Default": "apiurieldevGraphQLAPIEndpointOutput"
+    },
+    "apiurieldevGraphQLAPIKeyOutput": {
+      "Type": "String",
+      "Default": "apiurieldevGraphQLAPIKeyOutput"
     }
   },
   "Conditions": {
@@ -76,6 +88,15 @@
             },
             "STORAGE_URIELDEVCONTENT_BUCKETNAME": {
               "Ref": "storageurielDevContentBucketName"
+            },
+            "API_URIELDEV_GRAPHQLAPIIDOUTPUT": {
+              "Ref": "apiurieldevGraphQLAPIIdOutput"
+            },
+            "API_URIELDEV_GRAPHQLAPIENDPOINTOUTPUT": {
+              "Ref": "apiurieldevGraphQLAPIEndpointOutput"
+            },
+            "API_URIELDEV_GRAPHQLAPIKEYOUTPUT": {
+              "Ref": "apiurieldevGraphQLAPIKeyOutput"
             }
           }
         },
@@ -187,6 +208,94 @@
         "PolicyDocument": {
           "Version": "2012-10-17",
           "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "appsync:GraphQL"
+              ],
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:appsync:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":apis/",
+                      {
+                        "Ref": "apiurieldevGraphQLAPIIdOutput"
+                      },
+                      "/types/create/*"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:appsync:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":apis/",
+                      {
+                        "Ref": "apiurieldevGraphQLAPIIdOutput"
+                      },
+                      "/types/read/*"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:appsync:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":apis/",
+                      {
+                        "Ref": "apiurieldevGraphQLAPIIdOutput"
+                      },
+                      "/types/update/*"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:appsync:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":apis/",
+                      {
+                        "Ref": "apiurieldevGraphQLAPIIdOutput"
+                      },
+                      "/types/delete/*"
+                    ]
+                  ]
+                }
+              ]
+            },
             {
               "Effect": "Allow",
               "Action": "s3:ListBucket",

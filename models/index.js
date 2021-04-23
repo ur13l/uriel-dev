@@ -4,7 +4,7 @@ import { schema } from './schema';
 
 
 
-const { Blog, Post, Category, Author, SocialMedia, PostTag, Tag } = initSchema(schema);
+const { Blog, Post, Category, Author, SocialMedia, PostTag, Tag, ImageResponse, DataResponse } = initSchema(schema);
 
 export {
   Blog,
@@ -13,5 +13,7 @@ export {
   Author,
   SocialMedia,
   PostTag,
-  Tag
+  Tag,
+  ImageResponse,
+  DataResponse
 };

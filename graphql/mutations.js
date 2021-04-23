@@ -14,15 +14,9 @@ export const createPostTag = /* GraphQL */ `
         id
         name
         slug
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       post {
@@ -34,9 +28,6 @@ export const createPostTag = /* GraphQL */ `
         featuredImage
         authorID
         createdAt
-        _version
-        _deleted
-        _lastChangedAt
         updatedAt
       }
     }
@@ -55,15 +46,9 @@ export const updatePostTag = /* GraphQL */ `
         id
         name
         slug
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       post {
@@ -75,9 +60,6 @@ export const updatePostTag = /* GraphQL */ `
         featuredImage
         authorID
         createdAt
-        _version
-        _deleted
-        _lastChangedAt
         updatedAt
       }
     }
@@ -96,15 +78,9 @@ export const deletePostTag = /* GraphQL */ `
         id
         name
         slug
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       post {
@@ -116,9 +92,6 @@ export const deletePostTag = /* GraphQL */ `
         featuredImage
         authorID
         createdAt
-        _version
-        _deleted
-        _lastChangedAt
         updatedAt
       }
     }
@@ -135,11 +108,7 @@ export const createTag = /* GraphQL */ `
       slug
       posts {
         nextToken
-        startedAt
       }
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -156,11 +125,7 @@ export const updateTag = /* GraphQL */ `
       slug
       posts {
         nextToken
-        startedAt
       }
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -177,11 +142,7 @@ export const deleteTag = /* GraphQL */ `
       slug
       posts {
         nextToken
-        startedAt
       }
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -197,14 +158,10 @@ export const createBlog = /* GraphQL */ `
       name
       mainImage
       slug
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       posts {
         nextToken
-        startedAt
       }
     }
   }
@@ -219,14 +176,10 @@ export const updateBlog = /* GraphQL */ `
       name
       mainImage
       slug
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       posts {
         nextToken
-        startedAt
       }
     }
   }
@@ -241,14 +194,10 @@ export const deleteBlog = /* GraphQL */ `
       name
       mainImage
       slug
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       posts {
         nextToken
-        startedAt
       }
     }
   }
@@ -264,14 +213,10 @@ export const createCategory = /* GraphQL */ `
       description
       mainImage
       slug
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       posts {
         nextToken
-        startedAt
       }
     }
   }
@@ -287,14 +232,10 @@ export const updateCategory = /* GraphQL */ `
       description
       mainImage
       slug
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       posts {
         nextToken
-        startedAt
       }
     }
   }
@@ -310,14 +251,10 @@ export const deleteCategory = /* GraphQL */ `
       description
       mainImage
       slug
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       posts {
         nextToken
-        startedAt
       }
     }
   }
@@ -333,9 +270,6 @@ export const createSocialMedia = /* GraphQL */ `
       link
       logo
       authorID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       author {
@@ -344,9 +278,6 @@ export const createSocialMedia = /* GraphQL */ `
         lastname
         bio
         image
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
@@ -364,9 +295,6 @@ export const updateSocialMedia = /* GraphQL */ `
       link
       logo
       authorID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       author {
@@ -375,9 +303,6 @@ export const updateSocialMedia = /* GraphQL */ `
         lastname
         bio
         image
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
@@ -395,9 +320,6 @@ export const deleteSocialMedia = /* GraphQL */ `
       link
       logo
       authorID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       author {
@@ -406,9 +328,6 @@ export const deleteSocialMedia = /* GraphQL */ `
         lastname
         bio
         image
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
@@ -426,18 +345,13 @@ export const createAuthor = /* GraphQL */ `
       lastname
       bio
       image
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       socialMedia {
         nextToken
-        startedAt
       }
       posts {
         nextToken
-        startedAt
       }
     }
   }
@@ -453,18 +367,13 @@ export const updateAuthor = /* GraphQL */ `
       lastname
       bio
       image
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       socialMedia {
         nextToken
-        startedAt
       }
       posts {
         nextToken
-        startedAt
       }
     }
   }
@@ -480,18 +389,13 @@ export const deleteAuthor = /* GraphQL */ `
       lastname
       bio
       image
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       socialMedia {
         nextToken
-        startedAt
       }
       posts {
         nextToken
-        startedAt
       }
     }
   }
@@ -511,21 +415,14 @@ export const createPost = /* GraphQL */ `
       authorID
       tags {
         nextToken
-        startedAt
       }
       createdAt
-      _version
-      _deleted
-      _lastChangedAt
       updatedAt
       blog {
         id
         name
         mainImage
         slug
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
@@ -535,9 +432,6 @@ export const createPost = /* GraphQL */ `
         description
         mainImage
         slug
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
@@ -547,9 +441,6 @@ export const createPost = /* GraphQL */ `
         lastname
         bio
         image
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
@@ -571,21 +462,14 @@ export const updatePost = /* GraphQL */ `
       authorID
       tags {
         nextToken
-        startedAt
       }
       createdAt
-      _version
-      _deleted
-      _lastChangedAt
       updatedAt
       blog {
         id
         name
         mainImage
         slug
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
@@ -595,9 +479,6 @@ export const updatePost = /* GraphQL */ `
         description
         mainImage
         slug
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
@@ -607,9 +488,6 @@ export const updatePost = /* GraphQL */ `
         lastname
         bio
         image
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
@@ -631,21 +509,14 @@ export const deletePost = /* GraphQL */ `
       authorID
       tags {
         nextToken
-        startedAt
       }
       createdAt
-      _version
-      _deleted
-      _lastChangedAt
       updatedAt
       blog {
         id
         name
         mainImage
         slug
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
@@ -655,9 +526,6 @@ export const deletePost = /* GraphQL */ `
         description
         mainImage
         slug
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
@@ -667,9 +535,6 @@ export const deletePost = /* GraphQL */ `
         lastname
         bio
         image
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }

@@ -58,6 +58,12 @@ export const schema = {
                     "properties": {
                         "rules": [
                             {
+                                "allow": "public",
+                                "operations": [
+                                    "read"
+                                ]
+                            },
+                            {
                                 "allow": "private",
                                 "operations": [
                                     "create",
@@ -206,6 +212,12 @@ export const schema = {
                     "properties": {
                         "rules": [
                             {
+                                "allow": "public",
+                                "operations": [
+                                    "read"
+                                ]
+                            },
+                            {
                                 "allow": "private",
                                 "operations": [
                                     "create",
@@ -283,6 +295,12 @@ export const schema = {
                     "type": "auth",
                     "properties": {
                         "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "read"
+                                ]
+                            },
                             {
                                 "allow": "private",
                                 "operations": [
@@ -376,6 +394,12 @@ export const schema = {
                     "properties": {
                         "rules": [
                             {
+                                "allow": "public",
+                                "operations": [
+                                    "read"
+                                ]
+                            },
+                            {
                                 "allow": "private",
                                 "operations": [
                                     "create",
@@ -454,6 +478,12 @@ export const schema = {
                     "type": "auth",
                     "properties": {
                         "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "read"
+                                ]
+                            },
                             {
                                 "allow": "private",
                                 "operations": [
@@ -588,6 +618,55 @@ export const schema = {
         }
     },
     "enums": {},
-    "nonModels": {},
-    "version": "9401e8f7470821ac7e5021f31ef16bb9"
+    "nonModels": {
+        "ImageResponse": {
+            "name": "ImageResponse",
+            "fields": {
+                "msg": {
+                    "name": "msg",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "code": {
+                    "name": "code",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "data": {
+                    "name": "data",
+                    "isArray": false,
+                    "type": {
+                        "nonModel": "DataResponse"
+                    },
+                    "isRequired": true,
+                    "attributes": []
+                }
+            }
+        },
+        "DataResponse": {
+            "name": "DataResponse",
+            "fields": {
+                "errFiles": {
+                    "name": "errFiles",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": false
+                },
+                "succMap": {
+                    "name": "succMap",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                }
+            }
+        }
+    },
+    "version": "a1c530b7c975b5d7bf5328d1ffcbe353"
 };

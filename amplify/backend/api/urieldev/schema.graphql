@@ -1,4 +1,6 @@
-type Blog @model @auth(rules: [{ allow: private }]) {
+type Blog
+  @model
+  @auth(rules: [{ allow: public, operations: [read] }, { allow: private }]) {
   id: ID!
   name: String!
   mainImage: String
@@ -6,7 +8,9 @@ type Blog @model @auth(rules: [{ allow: private }]) {
   posts: [Post] @connection(keyName: "byBlog", fields: ["id"])
 }
 
-type Category @model @auth(rules: [{ allow: private }]) {
+type Category
+  @model
+  @auth(rules: [{ allow: public, operations: [read] }, { allow: private }]) {
   id: ID!
   name: String!
   description: String!
@@ -18,7 +22,7 @@ type Category @model @auth(rules: [{ allow: private }]) {
 type SocialMedia
   @model
   @key(name: "byAuthor", fields: ["authorID"])
-  @auth(rules: [{ allow: private }]) {
+  @auth(rules: [{ allow: public, operations: [read] }, { allow: private }]) {
   id: ID!
   name: String!
   link: String!
@@ -27,7 +31,9 @@ type SocialMedia
   author: Author @connection(fields: ["authorID"])
 }
 
-type Author @model @auth(rules: [{ allow: private }]) {
+type Author
+  @model
+  @auth(rules: [{ allow: public, operations: [read] }, { allow: private }]) {
   id: ID!
   name: String!
   lastname: String!
@@ -50,7 +56,7 @@ type Post
     fields: ["categoryID"]
     queryField: "getPostsByCategory"
   )
-  @auth(rules: [{ allow: private }]) {
+  @auth(rules: [{ allow: public, operations: [read] }, { allow: private }]) {
   id: ID!
   title: String!
   blogID: ID!
@@ -103,5 +109,6 @@ type DataResponse {
 }
 
 type Query {
-  uploadImage(files: String!): ImageResponse @function(name: "uploadImageBlog")
+  uploadImage(file: String!): ImageResponse
+    @function(name: "uploadImageBlog-${env}")
 }

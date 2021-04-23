@@ -13,16 +13,19 @@ const e = createElement;
 const handleImageUpload = async (file) => {
   const reader = new FileReader();
   let formdata = new FormData();
+
   formdata.append("files", file[0]);
-  reader.onload = async () => {
+  reader.onload = async ({ target: { result } }) => {
+    let extension = file[0].name.split(".").pop().toLowerCase();
     const res = await API.graphql(
-      graphqlOperation(uploadImage, { files: JSON.stringify(formdata) })
+      graphqlOperation(uploadImage, { file: result, extension })
     );
     res.data.uploadImage.data.succMap = JSON.parse(
       res.data.uploadImage.data.succMap
     );
     let path = res.data.uploadImage.data.succMap.image;
     let name = file[0] && file[0].name;
+
     let succFileText = "";
     succFileText += `  \n![${name}](${path})`;
     document.execCommand("insertHTML", false, succFileText);
@@ -30,56 +33,28 @@ const handleImageUpload = async (file) => {
   reader.readAsDataURL(file[0]);
 };
 
-const EditEntry = ({ blogSlug, categorySlug, postSlug }) => {
-  const [blog, setBlog] = useState();
-  const [category, setCategory] = useState();
+const EditEntry = ({ blog, category, postSlug }) => {
   const [post, setPost] = useState();
-  const [showSave, setShowSave] = useState(false);
   const [title, setTitle] = useState("");
-
-  //Obtener información del blog a partir de slug
-  useEffect(() => {
-    if (blogSlug) {
-      DataStore.query(Blog)
-        .then((r) => r.filter((b) => b.slug === blogSlug)[0])
-        .then((b) => setBlog(b));
-    }
-  }, [blogSlug]);
-
-  //Obtener información de la categoría a partir del slug
-  useEffect(() => {
-    if (categorySlug) {
-      DataStore.query(Category)
-        .then((r) => r.filter((c) => c.slug === categorySlug)[0])
-        .then((c) => setCategory(c));
-    }
-  }, [categorySlug]);
 
   //Guardar título en caché
   useEffect(() => {
     if (title) {
-      localStorage.setItem(`${categorySlug}-title-new`, title);
+      localStorage.setItem(`${category.slug}-title-new`, title);
     }
   }, [title]);
 
   //Obtener título de caché
   useEffect(() => {
-    const tls = localStorage.getItem(`${categorySlug}-title-new`);
+    const tls = localStorage.getItem(`${category.slug}-title-new`);
     if (tls) {
       setTitle(tls);
     }
-  }, [categorySlug]);
-
-  //Verificar si ya se tienen blog y categoría para mostrar el botón de guardar
-  useEffect(() => {
-    if (blog && category) {
-      setShowSave(true);
-    }
-  }, [blog, category]);
+  }, [category]);
 
   //Verificar instalación de Vditor
   useEffect(() => {
-    if (categorySlug) {
+    if (category) {
       const vditor = new Vditor("vditor", {
         minHeight: 200,
         height: "auto",
@@ -90,10 +65,10 @@ const EditEntry = ({ blogSlug, categorySlug, postSlug }) => {
           handler: handleImageUpload,
           url: async (files) => {
             debugger;
-            console.log(files);
-            const res = await API.graphql(
-              graphqlOperation(uploadImage, { files: JSON.stringify(files) })
-            );
+            const res = await API.graphql({
+              query: uploadImage,
+              variables: { files: JSON.stringify(files) },
+            });
             res.data.uploadImage.data.succMap = JSON.parse(
               res.data.uploadImage.data.succMap
             );
@@ -107,12 +82,12 @@ const EditEntry = ({ blogSlug, categorySlug, postSlug }) => {
         },
         cache: {
           enable: true,
-          id: `${categorySlug}-new`,
+          id: `${category.slug}-new`,
         },
         style: "api",
       });
     }
-  }, [categorySlug]);
+  }, [category]);
 
   return (
     <form className="w-full">
@@ -129,13 +104,11 @@ const EditEntry = ({ blogSlug, categorySlug, postSlug }) => {
           value={title}
         ></input>
         <div id="vditor" />
-        {showSave && (
-          <input
-            type="submit"
-            value={"Guardar"}
-            className="bg-blue-dark text-white w-full h-10 font-regular hover:bg-blue transition-colors cursor-pointer mb-10"
-          />
-        )}
+        <input
+          type="submit"
+          value={"Guardar"}
+          className="bg-blue-dark text-white w-full h-10 font-regular hover:bg-blue transition-colors cursor-pointer mb-10"
+        />
       </div>
     </form>
   );
