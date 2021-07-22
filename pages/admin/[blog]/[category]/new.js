@@ -1,8 +1,7 @@
 import AdminLayout from "../../../../_layout/admin-layout";
 import EditEntry from "../../../../_includes/admin/edit-entry";
 import { listCategorys, listBlogs } from "../../../../graphql/queries";
-import { API, DataStore } from "aws-amplify";
-import { Blog, Category } from "../../../../models";
+import { API } from "aws-amplify";
 import PropTypes from "prop-types";
 import { redirectIfNotAuthenticated } from "../../../../_utils/session";
 

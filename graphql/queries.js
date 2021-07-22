@@ -2,8 +2,8 @@
 // this is an auto generated file. This will be overwritten
 
 export const uploadImage = /* GraphQL */ `
-  query UploadImage($file: String!) {
-    uploadImage(file: $file) {
+  query UploadImage($file: String!, $extension: String!) {
+    uploadImage(file: $file, extension: $extension) {
       msg
       code
       data {
@@ -101,6 +101,21 @@ export const getPostTagByTag = /* GraphQL */ `
     }
   }
 `;
+export const getBlog = /* GraphQL */ `
+  query GetBlog($id: ID!) {
+    getBlog(id: $id) {
+      id
+      name
+      mainImage
+      slug
+      createdAt
+      updatedAt
+      posts {
+        nextToken
+      }
+    }
+  }
+`;
 export const listBlogs = /* GraphQL */ `
   query ListBlogs(
     $filter: ModelBlogFilterInput
@@ -120,11 +135,12 @@ export const listBlogs = /* GraphQL */ `
     }
   }
 `;
-export const getBlog = /* GraphQL */ `
-  query GetBlog($id: ID!) {
-    getBlog(id: $id) {
+export const getCategory = /* GraphQL */ `
+  query GetCategory($id: ID!) {
+    getCategory(id: $id) {
       id
       name
+      description
       mainImage
       slug
       createdAt
@@ -152,22 +168,6 @@ export const listCategorys = /* GraphQL */ `
         updatedAt
       }
       nextToken
-    }
-  }
-`;
-export const getCategory = /* GraphQL */ `
-  query GetCategory($id: ID!) {
-    getCategory(id: $id) {
-      id
-      name
-      description
-      mainImage
-      slug
-      createdAt
-      updatedAt
-      posts {
-        nextToken
-      }
     }
   }
 `;
@@ -213,26 +213,6 @@ export const listSocialMedias = /* GraphQL */ `
     }
   }
 `;
-export const listAuthors = /* GraphQL */ `
-  query ListAuthors(
-    $filter: ModelAuthorFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listAuthors(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        name
-        lastname
-        bio
-        image
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
 export const getAuthor = /* GraphQL */ `
   query GetAuthor($id: ID!) {
     getAuthor(id: $id) {
@@ -252,21 +232,19 @@ export const getAuthor = /* GraphQL */ `
     }
   }
 `;
-export const listPosts = /* GraphQL */ `
-  query ListPosts(
-    $filter: ModelPostFilterInput
+export const listAuthors = /* GraphQL */ `
+  query ListAuthors(
+    $filter: ModelAuthorFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listAuthors(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        title
-        blogID
-        categoryID
-        content
-        featuredImage
-        authorID
+        name
+        lastname
+        bio
+        image
         createdAt
         updatedAt
       }
@@ -315,6 +293,28 @@ export const getPost = /* GraphQL */ `
         createdAt
         updatedAt
       }
+    }
+  }
+`;
+export const listPosts = /* GraphQL */ `
+  query ListPosts(
+    $filter: ModelPostFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        title
+        blogID
+        categoryID
+        content
+        featuredImage
+        authorID
+        createdAt
+        updatedAt
+      }
+      nextToken
     }
   }
 `;

@@ -9,7 +9,7 @@ import { API, graphqlOperation } from "aws-amplify";
 
 const e = createElement;
 
-/**TODO: Esto funciona, pero no entiendo bien por qué */
+/**TODO: It works, but I have no idea why */
 const handleImageUpload = async (file) => {
   const reader = new FileReader();
   let formdata = new FormData();
@@ -17,6 +17,7 @@ const handleImageUpload = async (file) => {
   formdata.append("files", file[0]);
   reader.onload = async ({ target: { result } }) => {
     let extension = file[0].name.split(".").pop().toLowerCase();
+    console.log(extension);
     const res = await API.graphql(
       graphqlOperation(uploadImage, { file: result, extension })
     );

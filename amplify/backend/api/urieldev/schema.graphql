@@ -109,6 +109,6 @@ type DataResponse {
 }
 
 type Query {
-  uploadImage(file: String!): ImageResponse
+  uploadImage(file: String!, extension: String!): ImageResponse
     @function(name: "uploadImageBlog-${env}")
 }

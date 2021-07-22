@@ -18,17 +18,18 @@ exports.handler = async (event) => {
   const {
     arguments: { file, extension },
   } = event;
+  let image;
 
   buf = Buffer.from(file.replace(/^data:image\/\w+;base64,/, ""), "base64");
   var data = {
     Key: `${uuidv4()}.${extension}`, //TODO: Cambiar por UUID
     Body: buf,
     ContentEncoding: "base64",
-    ContentType: "image/jpeg",
+    ACL: "public-read-write",
   };
   try {
-    const res = await s3.putObject(data).promise();
-    console.log(res); //TODO: Generar public link
+    const { Location } = await s3.upload(data).promise();
+    image = Location;
   } catch (e) {}
 
   const response = {
@@ -37,8 +38,7 @@ exports.handler = async (event) => {
     data: {
       errFiles: [],
       succMap: JSON.stringify({
-        image:
-          "https://images-na.ssl-images-amazon.com/images/I/71oLPcxaBdL._SL1200_.jpg",
+        image,
       }),
     },
   };
