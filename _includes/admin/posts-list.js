@@ -2,6 +2,7 @@ import Link from "next/link";
 import PropTypes from "prop-types";
 
 const PostsList = ({ title, category, blog }) => {
+  console.log(posts);
   return (
     <div className="w-full md:w-1/2 p-4">
       <div className="flex">
@@ -20,6 +21,13 @@ const PostsList = ({ title, category, blog }) => {
         />
       </div>
       <div className="w-full h-20">{category}</div>
+      <div>
+        <ul>
+          {posts?.map((item, key) => (
+            <li>item.title</li>
+          ))}
+        </ul>
+      </div>
       <div className="flex w-full justify-center">
         <button className="font-menu underline">Más</button>
       </div>
@@ -31,6 +39,7 @@ PostsList.propTypes = {
   title: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   blog: PropTypes.string.isRequired,
+  posts: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default PostsList;

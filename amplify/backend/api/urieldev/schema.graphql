@@ -56,7 +56,9 @@ type Post
     fields: ["categoryID"]
     queryField: "getPostsByCategory"
   )
-  @auth(rules: [{ allow: public, operations: [read] }, { allow: private }]) {
+  @auth(
+    rules: [{ allow: public, operations: [read, create] }, { allow: private }]
+  ) {
   id: ID!
   title: String!
   blogID: ID!

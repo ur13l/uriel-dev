@@ -11,7 +11,7 @@ import { redirectIfNotAuthenticated } from "../../_utils/session";
 
 const Dashboard = ({ blog, categories }) => {
   const [loading, setLoading] = useState(false);
-
+  console.log(categories);
   return (
     <AdminLayout>
       <div className="flex flex-col md:flex-row self-center place-self-center container p-4">
@@ -20,9 +20,11 @@ const Dashboard = ({ blog, categories }) => {
           <>
             {categories.map((category, key) => (
               <PostsList
+                key={key}
                 title={category.name}
                 category={category.slug}
                 blog={blog.slug}
+                posts={category?.posts}
               />
             ))}
           </>
@@ -44,7 +46,6 @@ export const getServerSideProps = async ({ req, res }) => {
       listCategorys: { items: categories },
     },
   } = await API.graphql({ query: listCategorys });
-  console.log(blogs);
   const blog = blogs.length ? blogs[0] : null;
 
   return { props: { blog, categories } };
