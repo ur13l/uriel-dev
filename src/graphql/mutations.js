@@ -1,6 +1,204 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createPost = /* GraphQL */ `
+  mutation CreatePost(
+    $input: CreatePostInput!
+    $condition: ModelPostConditionInput
+  ) {
+    createPost(input: $input, condition: $condition) {
+      id
+      title
+      blogID
+      categoryID
+      content
+      featuredImage
+      authorID
+      tags {
+        items {
+          id
+          postID
+          tagID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      blog {
+        id
+        name
+        mainImage
+        slug
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      category {
+        id
+        name
+        description
+        mainImage
+        slug
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      author {
+        id
+        name
+        lastname
+        bio
+        image
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        socialMedia {
+          nextToken
+        }
+      }
+    }
+  }
+`;
+export const updatePost = /* GraphQL */ `
+  mutation UpdatePost(
+    $input: UpdatePostInput!
+    $condition: ModelPostConditionInput
+  ) {
+    updatePost(input: $input, condition: $condition) {
+      id
+      title
+      blogID
+      categoryID
+      content
+      featuredImage
+      authorID
+      tags {
+        items {
+          id
+          postID
+          tagID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      blog {
+        id
+        name
+        mainImage
+        slug
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      category {
+        id
+        name
+        description
+        mainImage
+        slug
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      author {
+        id
+        name
+        lastname
+        bio
+        image
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        socialMedia {
+          nextToken
+        }
+      }
+    }
+  }
+`;
+export const deletePost = /* GraphQL */ `
+  mutation DeletePost(
+    $input: DeletePostInput!
+    $condition: ModelPostConditionInput
+  ) {
+    deletePost(input: $input, condition: $condition) {
+      id
+      title
+      blogID
+      categoryID
+      content
+      featuredImage
+      authorID
+      tags {
+        items {
+          id
+          postID
+          tagID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      blog {
+        id
+        name
+        mainImage
+        slug
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      category {
+        id
+        name
+        description
+        mainImage
+        slug
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      author {
+        id
+        name
+        lastname
+        bio
+        image
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        socialMedia {
+          nextToken
+        }
+      }
+    }
+  }
+`;
 export const createPostTag = /* GraphQL */ `
   mutation CreatePostTag(
     $input: CreatePostTagInput!
@@ -10,18 +208,6 @@ export const createPostTag = /* GraphQL */ `
       id
       postID
       tagID
-      tag {
-        id
-        name
-        slug
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
       post {
         id
         title
@@ -62,6 +248,18 @@ export const createPostTag = /* GraphQL */ `
           updatedAt
         }
       }
+      tag {
+        id
+        name
+        slug
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -74,18 +272,6 @@ export const updatePostTag = /* GraphQL */ `
       id
       postID
       tagID
-      tag {
-        id
-        name
-        slug
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
       post {
         id
         title
@@ -126,6 +312,18 @@ export const updatePostTag = /* GraphQL */ `
           updatedAt
         }
       }
+      tag {
+        id
+        name
+        slug
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -138,18 +336,6 @@ export const deletePostTag = /* GraphQL */ `
       id
       postID
       tagID
-      tag {
-        id
-        name
-        slug
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
       post {
         id
         title
@@ -190,6 +376,18 @@ export const deletePostTag = /* GraphQL */ `
           updatedAt
         }
       }
+      tag {
+        id
+        name
+        slug
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -275,8 +473,6 @@ export const createBlog = /* GraphQL */ `
       name
       mainImage
       slug
-      createdAt
-      updatedAt
       posts {
         items {
           id
@@ -291,6 +487,8 @@ export const createBlog = /* GraphQL */ `
         }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -304,8 +502,6 @@ export const updateBlog = /* GraphQL */ `
       name
       mainImage
       slug
-      createdAt
-      updatedAt
       posts {
         items {
           id
@@ -320,6 +516,8 @@ export const updateBlog = /* GraphQL */ `
         }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -333,8 +531,6 @@ export const deleteBlog = /* GraphQL */ `
       name
       mainImage
       slug
-      createdAt
-      updatedAt
       posts {
         items {
           id
@@ -349,6 +545,8 @@ export const deleteBlog = /* GraphQL */ `
         }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -363,8 +561,6 @@ export const createCategory = /* GraphQL */ `
       description
       mainImage
       slug
-      createdAt
-      updatedAt
       posts {
         items {
           id
@@ -379,6 +575,8 @@ export const createCategory = /* GraphQL */ `
         }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -393,8 +591,6 @@ export const updateCategory = /* GraphQL */ `
       description
       mainImage
       slug
-      createdAt
-      updatedAt
       posts {
         items {
           id
@@ -409,6 +605,8 @@ export const updateCategory = /* GraphQL */ `
         }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -423,8 +621,6 @@ export const deleteCategory = /* GraphQL */ `
       description
       mainImage
       slug
-      createdAt
-      updatedAt
       posts {
         items {
           id
@@ -439,6 +635,8 @@ export const deleteCategory = /* GraphQL */ `
         }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -461,12 +659,12 @@ export const createSocialMedia = /* GraphQL */ `
         lastname
         bio
         image
+        posts {
+          nextToken
+        }
         createdAt
         updatedAt
         socialMedia {
-          nextToken
-        }
-        posts {
           nextToken
         }
       }
@@ -492,12 +690,12 @@ export const updateSocialMedia = /* GraphQL */ `
         lastname
         bio
         image
+        posts {
+          nextToken
+        }
         createdAt
         updatedAt
         socialMedia {
-          nextToken
-        }
-        posts {
           nextToken
         }
       }
@@ -523,12 +721,12 @@ export const deleteSocialMedia = /* GraphQL */ `
         lastname
         bio
         image
+        posts {
+          nextToken
+        }
         createdAt
         updatedAt
         socialMedia {
-          nextToken
-        }
-        posts {
           nextToken
         }
       }
@@ -546,20 +744,6 @@ export const createAuthor = /* GraphQL */ `
       lastname
       bio
       image
-      createdAt
-      updatedAt
-      socialMedia {
-        items {
-          id
-          name
-          link
-          logo
-          authorID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
       posts {
         items {
           id
@@ -568,6 +752,20 @@ export const createAuthor = /* GraphQL */ `
           categoryID
           content
           featuredImage
+          authorID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      socialMedia {
+        items {
+          id
+          name
+          link
+          logo
           authorID
           createdAt
           updatedAt
@@ -588,20 +786,6 @@ export const updateAuthor = /* GraphQL */ `
       lastname
       bio
       image
-      createdAt
-      updatedAt
-      socialMedia {
-        items {
-          id
-          name
-          link
-          logo
-          authorID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
       posts {
         items {
           id
@@ -610,6 +794,20 @@ export const updateAuthor = /* GraphQL */ `
           categoryID
           content
           featuredImage
+          authorID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      socialMedia {
+        items {
+          id
+          name
+          link
+          logo
           authorID
           createdAt
           updatedAt
@@ -630,20 +828,6 @@ export const deleteAuthor = /* GraphQL */ `
       lastname
       bio
       image
-      createdAt
-      updatedAt
-      socialMedia {
-        items {
-          id
-          name
-          link
-          logo
-          authorID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
       posts {
         items {
           id
@@ -658,203 +842,19 @@ export const deleteAuthor = /* GraphQL */ `
         }
         nextToken
       }
-    }
-  }
-`;
-export const createPost = /* GraphQL */ `
-  mutation CreatePost(
-    $input: CreatePostInput!
-    $condition: ModelPostConditionInput
-  ) {
-    createPost(input: $input, condition: $condition) {
-      id
-      title
-      blogID
-      categoryID
-      content
-      featuredImage
-      authorID
-      tags {
+      createdAt
+      updatedAt
+      socialMedia {
         items {
           id
-          postID
-          tagID
+          name
+          link
+          logo
+          authorID
           createdAt
           updatedAt
         }
         nextToken
-      }
-      createdAt
-      updatedAt
-      blog {
-        id
-        name
-        mainImage
-        slug
-        createdAt
-        updatedAt
-        posts {
-          nextToken
-        }
-      }
-      category {
-        id
-        name
-        description
-        mainImage
-        slug
-        createdAt
-        updatedAt
-        posts {
-          nextToken
-        }
-      }
-      author {
-        id
-        name
-        lastname
-        bio
-        image
-        createdAt
-        updatedAt
-        socialMedia {
-          nextToken
-        }
-        posts {
-          nextToken
-        }
-      }
-    }
-  }
-`;
-export const updatePost = /* GraphQL */ `
-  mutation UpdatePost(
-    $input: UpdatePostInput!
-    $condition: ModelPostConditionInput
-  ) {
-    updatePost(input: $input, condition: $condition) {
-      id
-      title
-      blogID
-      categoryID
-      content
-      featuredImage
-      authorID
-      tags {
-        items {
-          id
-          postID
-          tagID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      blog {
-        id
-        name
-        mainImage
-        slug
-        createdAt
-        updatedAt
-        posts {
-          nextToken
-        }
-      }
-      category {
-        id
-        name
-        description
-        mainImage
-        slug
-        createdAt
-        updatedAt
-        posts {
-          nextToken
-        }
-      }
-      author {
-        id
-        name
-        lastname
-        bio
-        image
-        createdAt
-        updatedAt
-        socialMedia {
-          nextToken
-        }
-        posts {
-          nextToken
-        }
-      }
-    }
-  }
-`;
-export const deletePost = /* GraphQL */ `
-  mutation DeletePost(
-    $input: DeletePostInput!
-    $condition: ModelPostConditionInput
-  ) {
-    deletePost(input: $input, condition: $condition) {
-      id
-      title
-      blogID
-      categoryID
-      content
-      featuredImage
-      authorID
-      tags {
-        items {
-          id
-          postID
-          tagID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      blog {
-        id
-        name
-        mainImage
-        slug
-        createdAt
-        updatedAt
-        posts {
-          nextToken
-        }
-      }
-      category {
-        id
-        name
-        description
-        mainImage
-        slug
-        createdAt
-        updatedAt
-        posts {
-          nextToken
-        }
-      }
-      author {
-        id
-        name
-        lastname
-        bio
-        image
-        createdAt
-        updatedAt
-        socialMedia {
-          nextToken
-        }
-        posts {
-          nextToken
-        }
       }
     }
   }

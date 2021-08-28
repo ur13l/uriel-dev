@@ -56,9 +56,9 @@ type Post
     fields: ["categoryID"]
     queryField: "getPostsByCategory"
   )
-  @auth(
-    rules: [{ allow: public, operations: [read, create] }, { allow: private }]
-  ) {
+  @auth(rules: [{ allow: public, operations: [read, create] }])
+  @aws_api_key
+  @aws_cognito_user_pools {
   id: ID!
   title: String!
   blogID: ID!
