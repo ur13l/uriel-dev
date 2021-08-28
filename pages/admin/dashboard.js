@@ -7,8 +7,7 @@ import PropTypes from "prop-types";
 import { redirectIfNotAuthenticated } from "../../_utils/session";
 
 const Dashboard = ({ blog, categories }) => {
-  const [loading, setLoading] = useState(false);
-  console.log(categories);
+  const [loading] = useState(false);
   return (
     <AdminLayout>
       <div className="flex flex-col md:flex-row self-center place-self-center container p-4">
@@ -16,7 +15,7 @@ const Dashboard = ({ blog, categories }) => {
         {!loading && blog && (
           <>
             {categories.map((category, key) => (
-              <PostsList category={category} blog={blog.slug} />
+              <PostsList category={category} blog={blog.slug} key={key} />
             ))}
           </>
         )}
