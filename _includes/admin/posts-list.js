@@ -1,15 +1,38 @@
 import Link from "next/link";
 import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
+import { API, graphqlOperation } from "aws-amplify";
+import { getPostsByCategory } from "../../graphql/queries";
+import EntryItem from "./entry-item";
 
-const PostsList = ({ title, category, blog }) => {
-  console.log(posts);
+const PostsList = ({ category, blog }) => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    if (category?.id) {
+      const getPosts = async () => {
+        const {
+          data: {
+            getPostsByCategory: { items: posts },
+          },
+        } = await API.graphql(
+          graphqlOperation(getPostsByCategory, {
+            categoryID: category?.id,
+          })
+        );
+        setPosts(posts);
+      };
+      getPosts();
+    }
+  }, [category]);
+
   return (
     <div className="w-full md:w-1/2 p-4">
       <div className="flex">
         <h1 className="flex-grow text-2xl md:text-3xl text-blue-dark">
-          {title}
+          {category.name}
         </h1>
-        <Link href={`/admin/${blog}/${category}/new`}>
+        <Link href={`/admin/${blog}/${category?.slug}/new`}>
           <span className="font-menu underline cursor-pointer">Nueva</span>
         </Link>
       </div>
@@ -20,11 +43,10 @@ const PostsList = ({ title, category, blog }) => {
           placeholder="Buscar..."
         />
       </div>
-      <div className="w-full h-20">{category}</div>
       <div>
         <ul>
           {posts?.map((item, key) => (
-            <li>item.title</li>
+            <EntryItem post={item} key={key} />
           ))}
         </ul>
       </div>
@@ -36,10 +58,8 @@ const PostsList = ({ title, category, blog }) => {
 };
 
 PostsList.propTypes = {
-  title: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
+  category: PropTypes.object.isRequired,
   blog: PropTypes.string.isRequired,
-  posts: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default PostsList;
