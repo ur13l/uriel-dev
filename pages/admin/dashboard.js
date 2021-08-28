@@ -1,9 +1,6 @@
 import AdminLayout from "../../_layout/admin-layout";
 import PostsList from "../../_includes/admin/posts-list.js";
-import { DataStore } from "@aws-amplify/datastore";
-import { Blog } from "../../models";
-import { Category } from "../../models";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { API } from "aws-amplify";
 import { listBlogs, listCategorys } from "../../graphql/queries";
 import PropTypes from "prop-types";
@@ -19,13 +16,7 @@ const Dashboard = ({ blog, categories }) => {
         {!loading && blog && (
           <>
             {categories.map((category, key) => (
-              <PostsList
-                key={key}
-                title={category.name}
-                category={category.slug}
-                blog={blog.slug}
-                posts={category?.posts}
-              />
+              <PostsList category={category} blog={blog.slug} />
             ))}
           </>
         )}
