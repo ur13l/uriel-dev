@@ -6,10 +6,12 @@ import { getPostsByCategory } from "../../graphql/queries";
 import EntryItem from "./entry-item";
 import Dialog from "../common/dialog";
 import { deletePost } from "../../graphql/mutations";
+import { useAlertContext } from "../../_hooks/use-alert";
 
 const PostsList = ({ category, blog }) => {
   const [posts, setPosts] = useState([]);
   const [postToDelete, setPostToDelete] = useState();
+  const { displayAlert } = useAlertContext();
 
   //Function to dismiss the delete dialog.
   const dismissDialog = () => {
@@ -24,9 +26,16 @@ const PostsList = ({ category, blog }) => {
       );
       setPosts(posts.filter((p) => p.id !== postToDelete.id));
       setPostToDelete(undefined);
+      displayAlert("Entrada eliminada exitosamente");
     } catch (e) {
       setPostToDelete(undefined);
       //TODO: Implement general toast warning messaging.
+
+      displayAlert(
+        "Hubo un error al eliminar la entrada, intenta más adelante",
+        5000,
+        "red-500"
+      );
     }
   };
 
