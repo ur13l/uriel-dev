@@ -18,7 +18,7 @@
       "function": {
         "uploadImageBlog": {
           "deploymentBucketName": "amplify-urieldev-staging-181736-deployment",
-          "s3Key": "amplify-builds/uploadImageBlog-3362666863352b694731-build.zip"
+          "s3Key": "amplify-builds/uploadImageBlog-6562777935724773784e-build.zip"
         }
       }
     }

@@ -1,21 +1,204 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreatePost = /* GraphQL */ `
+  subscription OnCreatePost {
+    onCreatePost {
+      id
+      title
+      blogID
+      categoryID
+      content
+      featuredImage
+      authorID
+      searchValue
+      tags {
+        items {
+          id
+          postID
+          tagID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      blog {
+        id
+        name
+        mainImage
+        slug
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      category {
+        id
+        name
+        description
+        mainImage
+        slug
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      author {
+        id
+        name
+        lastname
+        bio
+        image
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        socialMedia {
+          nextToken
+        }
+      }
+    }
+  }
+`;
+export const onUpdatePost = /* GraphQL */ `
+  subscription OnUpdatePost {
+    onUpdatePost {
+      id
+      title
+      blogID
+      categoryID
+      content
+      featuredImage
+      authorID
+      searchValue
+      tags {
+        items {
+          id
+          postID
+          tagID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      blog {
+        id
+        name
+        mainImage
+        slug
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      category {
+        id
+        name
+        description
+        mainImage
+        slug
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      author {
+        id
+        name
+        lastname
+        bio
+        image
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        socialMedia {
+          nextToken
+        }
+      }
+    }
+  }
+`;
+export const onDeletePost = /* GraphQL */ `
+  subscription OnDeletePost {
+    onDeletePost {
+      id
+      title
+      blogID
+      categoryID
+      content
+      featuredImage
+      authorID
+      searchValue
+      tags {
+        items {
+          id
+          postID
+          tagID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      blog {
+        id
+        name
+        mainImage
+        slug
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      category {
+        id
+        name
+        description
+        mainImage
+        slug
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      author {
+        id
+        name
+        lastname
+        bio
+        image
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        socialMedia {
+          nextToken
+        }
+      }
+    }
+  }
+`;
 export const onCreatePostTag = /* GraphQL */ `
   subscription OnCreatePostTag {
     onCreatePostTag {
       id
       postID
       tagID
-      tag {
-        id
-        name
-        slug
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
       post {
         id
         title
@@ -24,9 +207,51 @@ export const onCreatePostTag = /* GraphQL */ `
         content
         featuredImage
         authorID
+        searchValue
+        tags {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        blog {
+          id
+          name
+          mainImage
+          slug
+          createdAt
+          updatedAt
+        }
+        category {
+          id
+          name
+          description
+          mainImage
+          slug
+          createdAt
+          updatedAt
+        }
+        author {
+          id
+          name
+          lastname
+          bio
+          image
+          createdAt
+          updatedAt
+        }
+      }
+      tag {
+        id
+        name
+        slug
+        posts {
+          nextToken
+        }
         createdAt
         updatedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -36,15 +261,6 @@ export const onUpdatePostTag = /* GraphQL */ `
       id
       postID
       tagID
-      tag {
-        id
-        name
-        slug
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
       post {
         id
         title
@@ -53,9 +269,51 @@ export const onUpdatePostTag = /* GraphQL */ `
         content
         featuredImage
         authorID
+        searchValue
+        tags {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        blog {
+          id
+          name
+          mainImage
+          slug
+          createdAt
+          updatedAt
+        }
+        category {
+          id
+          name
+          description
+          mainImage
+          slug
+          createdAt
+          updatedAt
+        }
+        author {
+          id
+          name
+          lastname
+          bio
+          image
+          createdAt
+          updatedAt
+        }
+      }
+      tag {
+        id
+        name
+        slug
+        posts {
+          nextToken
+        }
         createdAt
         updatedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -65,15 +323,6 @@ export const onDeletePostTag = /* GraphQL */ `
       id
       postID
       tagID
-      tag {
-        id
-        name
-        slug
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
       post {
         id
         title
@@ -82,9 +331,51 @@ export const onDeletePostTag = /* GraphQL */ `
         content
         featuredImage
         authorID
+        searchValue
+        tags {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        blog {
+          id
+          name
+          mainImage
+          slug
+          createdAt
+          updatedAt
+        }
+        category {
+          id
+          name
+          description
+          mainImage
+          slug
+          createdAt
+          updatedAt
+        }
+        author {
+          id
+          name
+          lastname
+          bio
+          image
+          createdAt
+          updatedAt
+        }
+      }
+      tag {
+        id
+        name
+        slug
+        posts {
+          nextToken
+        }
         createdAt
         updatedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -95,6 +386,13 @@ export const onCreateTag = /* GraphQL */ `
       name
       slug
       posts {
+        items {
+          id
+          postID
+          tagID
+          createdAt
+          updatedAt
+        }
         nextToken
       }
       createdAt
@@ -109,6 +407,13 @@ export const onUpdateTag = /* GraphQL */ `
       name
       slug
       posts {
+        items {
+          id
+          postID
+          tagID
+          createdAt
+          updatedAt
+        }
         nextToken
       }
       createdAt
@@ -123,6 +428,13 @@ export const onDeleteTag = /* GraphQL */ `
       name
       slug
       posts {
+        items {
+          id
+          postID
+          tagID
+          createdAt
+          updatedAt
+        }
         nextToken
       }
       createdAt
@@ -137,11 +449,23 @@ export const onCreateBlog = /* GraphQL */ `
       name
       mainImage
       slug
-      createdAt
-      updatedAt
       posts {
+        items {
+          id
+          title
+          blogID
+          categoryID
+          content
+          featuredImage
+          authorID
+          searchValue
+          createdAt
+          updatedAt
+        }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -152,11 +476,23 @@ export const onUpdateBlog = /* GraphQL */ `
       name
       mainImage
       slug
-      createdAt
-      updatedAt
       posts {
+        items {
+          id
+          title
+          blogID
+          categoryID
+          content
+          featuredImage
+          authorID
+          searchValue
+          createdAt
+          updatedAt
+        }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -167,11 +503,23 @@ export const onDeleteBlog = /* GraphQL */ `
       name
       mainImage
       slug
-      createdAt
-      updatedAt
       posts {
+        items {
+          id
+          title
+          blogID
+          categoryID
+          content
+          featuredImage
+          authorID
+          searchValue
+          createdAt
+          updatedAt
+        }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -183,11 +531,23 @@ export const onCreateCategory = /* GraphQL */ `
       description
       mainImage
       slug
-      createdAt
-      updatedAt
       posts {
+        items {
+          id
+          title
+          blogID
+          categoryID
+          content
+          featuredImage
+          authorID
+          searchValue
+          createdAt
+          updatedAt
+        }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -199,11 +559,23 @@ export const onUpdateCategory = /* GraphQL */ `
       description
       mainImage
       slug
-      createdAt
-      updatedAt
       posts {
+        items {
+          id
+          title
+          blogID
+          categoryID
+          content
+          featuredImage
+          authorID
+          searchValue
+          createdAt
+          updatedAt
+        }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -215,11 +587,23 @@ export const onDeleteCategory = /* GraphQL */ `
       description
       mainImage
       slug
-      createdAt
-      updatedAt
       posts {
+        items {
+          id
+          title
+          blogID
+          categoryID
+          content
+          featuredImage
+          authorID
+          searchValue
+          createdAt
+          updatedAt
+        }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -239,8 +623,14 @@ export const onCreateSocialMedia = /* GraphQL */ `
         lastname
         bio
         image
+        posts {
+          nextToken
+        }
         createdAt
         updatedAt
+        socialMedia {
+          nextToken
+        }
       }
     }
   }
@@ -261,8 +651,14 @@ export const onUpdateSocialMedia = /* GraphQL */ `
         lastname
         bio
         image
+        posts {
+          nextToken
+        }
         createdAt
         updatedAt
+        socialMedia {
+          nextToken
+        }
       }
     }
   }
@@ -283,8 +679,14 @@ export const onDeleteSocialMedia = /* GraphQL */ `
         lastname
         bio
         image
+        posts {
+          nextToken
+        }
         createdAt
         updatedAt
+        socialMedia {
+          nextToken
+        }
       }
     }
   }
@@ -297,12 +699,33 @@ export const onCreateAuthor = /* GraphQL */ `
       lastname
       bio
       image
+      posts {
+        items {
+          id
+          title
+          blogID
+          categoryID
+          content
+          featuredImage
+          authorID
+          searchValue
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
       socialMedia {
-        nextToken
-      }
-      posts {
+        items {
+          id
+          name
+          link
+          logo
+          authorID
+          createdAt
+          updatedAt
+        }
         nextToken
       }
     }
@@ -316,12 +739,33 @@ export const onUpdateAuthor = /* GraphQL */ `
       lastname
       bio
       image
+      posts {
+        items {
+          id
+          title
+          blogID
+          categoryID
+          content
+          featuredImage
+          authorID
+          searchValue
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
       socialMedia {
-        nextToken
-      }
-      posts {
+        items {
+          id
+          name
+          link
+          logo
+          authorID
+          createdAt
+          updatedAt
+        }
         nextToken
       }
     }
@@ -335,145 +779,34 @@ export const onDeleteAuthor = /* GraphQL */ `
       lastname
       bio
       image
+      posts {
+        items {
+          id
+          title
+          blogID
+          categoryID
+          content
+          featuredImage
+          authorID
+          searchValue
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
       socialMedia {
+        items {
+          id
+          name
+          link
+          logo
+          authorID
+          createdAt
+          updatedAt
+        }
         nextToken
-      }
-      posts {
-        nextToken
-      }
-    }
-  }
-`;
-export const onCreatePost = /* GraphQL */ `
-  subscription OnCreatePost {
-    onCreatePost {
-      id
-      title
-      blogID
-      categoryID
-      content
-      featuredImage
-      authorID
-      tags {
-        nextToken
-      }
-      createdAt
-      updatedAt
-      blog {
-        id
-        name
-        mainImage
-        slug
-        createdAt
-        updatedAt
-      }
-      category {
-        id
-        name
-        description
-        mainImage
-        slug
-        createdAt
-        updatedAt
-      }
-      author {
-        id
-        name
-        lastname
-        bio
-        image
-        createdAt
-        updatedAt
-      }
-    }
-  }
-`;
-export const onUpdatePost = /* GraphQL */ `
-  subscription OnUpdatePost {
-    onUpdatePost {
-      id
-      title
-      blogID
-      categoryID
-      content
-      featuredImage
-      authorID
-      tags {
-        nextToken
-      }
-      createdAt
-      updatedAt
-      blog {
-        id
-        name
-        mainImage
-        slug
-        createdAt
-        updatedAt
-      }
-      category {
-        id
-        name
-        description
-        mainImage
-        slug
-        createdAt
-        updatedAt
-      }
-      author {
-        id
-        name
-        lastname
-        bio
-        image
-        createdAt
-        updatedAt
-      }
-    }
-  }
-`;
-export const onDeletePost = /* GraphQL */ `
-  subscription OnDeletePost {
-    onDeletePost {
-      id
-      title
-      blogID
-      categoryID
-      content
-      featuredImage
-      authorID
-      tags {
-        nextToken
-      }
-      createdAt
-      updatedAt
-      blog {
-        id
-        name
-        mainImage
-        slug
-        createdAt
-        updatedAt
-      }
-      category {
-        id
-        name
-        description
-        mainImage
-        slug
-        createdAt
-        updatedAt
-      }
-      author {
-        id
-        name
-        lastname
-        bio
-        image
-        createdAt
-        updatedAt
       }
     }
   }

@@ -52,8 +52,12 @@
       },
       "Properties": {
         "Code": {
-          "S3Bucket": "amplify-urieldev-staging-181736-deployment",
-          "S3Key": "amplify-builds/uploadImageBlog-51394d4b624a776a4a78-build.zip"
+          "S3Bucket": {
+            "Ref": "deploymentBucketName"
+          },
+          "S3Key": {
+            "Ref": "s3Key"
+          }
         },
         "Handler": "index.handler",
         "FunctionName": {

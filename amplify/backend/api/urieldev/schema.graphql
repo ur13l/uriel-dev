@@ -68,6 +68,7 @@ type Post
   content: String!
   featuredImage: String
   authorID: ID!
+  searchValue: String!
   author: Author @connection(fields: ["authorID"])
   tags: [PostTag] @connection(keyName: "byPost", fields: ["id"])
   createdAt: AWSDateTime!

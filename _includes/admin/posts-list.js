@@ -11,6 +11,7 @@ import { useAlertContext } from "../../_hooks/use-alert";
 const PostsList = ({ category, blog }) => {
   const [posts, setPosts] = useState([]);
   const [postToDelete, setPostToDelete] = useState();
+  const [search, setSearch] = useState("");
   const { displayAlert } = useAlertContext();
 
   //Function to dismiss the delete dialog.
@@ -29,8 +30,6 @@ const PostsList = ({ category, blog }) => {
       displayAlert("Entrada eliminada exitosamente");
     } catch (e) {
       setPostToDelete(undefined);
-      //TODO: Implement general toast warning messaging.
-
       displayAlert(
         "Hubo un error al eliminar la entrada, intenta más adelante",
         5000,
@@ -61,6 +60,35 @@ const PostsList = ({ category, blog }) => {
     }
   }, [category]);
 
+  /**
+   * Effect that handles the writing on the search bar to display the correct posts.
+   */
+  useEffect(() => {
+    const filterPosts = async () => {
+      if (search) {
+        const {
+          data: {
+            getPostsByCategory: { items: posts },
+          },
+        } = await API.graphql(
+          graphqlOperation(getPostsByCategory, {
+            categoryID: category?.id,
+            filter: {
+              searchValue: {
+                contains: search
+                  .toLowerCase()
+                  .normalize("NFD")
+                  .replace(/[\u0300-\u036f]/g, ""),
+              },
+            },
+          })
+        );
+        setPosts(posts);
+      }
+    };
+    filterPosts();
+  }, [search]);
+
   return (
     <>
       <div className="w-full md:w-1/2 p-4">
@@ -77,6 +105,7 @@ const PostsList = ({ category, blog }) => {
             className="p-2 border-b outline-none border-gray-400 appearance-none w-full rounded-none"
             type="search"
             placeholder="Buscar..."
+            onChange={(e) => setSearch(e.target.value)}
           />
         </div>
         <div>

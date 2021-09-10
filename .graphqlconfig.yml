@@ -2,14 +2,14 @@ projects:
   urieldev:
     schemaPath: amplify/backend/api/urieldev/build/schema.graphql
     includes:
-      - src/graphql/**/*.js
+      - graphql/**/*.js
     excludes:
       - ./amplify/**
     extensions:
       amplify:
         codeGenTarget: javascript
         generatedFileName: ''
-        docsFilePath: src/graphql
+        docsFilePath: graphql
         region: us-east-2
         apiId: null
         maxDepth: 3

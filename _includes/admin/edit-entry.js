@@ -106,12 +106,17 @@ const EditEntry = ({ blog, category, postSlug }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    const searchValue = `${title} ${selectedAuthor?.name}`
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
     const data = {
       title,
       content: vditor?.getValue(),
       blogID: blog.id,
       categoryID: category.id,
       featuredImage: "NONE",
+      searchValue: searchValue,
       authorID: selectedAuthor?.id,
       createdAt: new Date(),
     };
